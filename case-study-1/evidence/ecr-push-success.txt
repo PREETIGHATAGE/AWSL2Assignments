@@ -1,0 +1,12 @@
+The push refers to repository [609862927287.dkr.ecr.us-east-1.amazonaws.com/currency-exchange-app]
+abc99513b487: Preparing
+cb6032ce6b99: Preparing
+6be690267e47: Preparing
+13a34b6fff78: Preparing
+9c1b6dd6c1e6: Preparing
+cb6032ce6b99: Pushed
+13a34b6fff78: Pushed
+abc99513b487: Pushed
+9c1b6dd6c1e6: Pushed
+6be690267e47: Pushed
+latest: digest: sha256:03c6155901d1d4d105cc5afbf82e3aee03bda87a478d472c02cd885ed9fd714c size: 1371
