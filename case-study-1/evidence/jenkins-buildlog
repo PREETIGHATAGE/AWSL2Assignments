@@ -1,0 +1,474 @@
+Started by user Admin
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/currency-exchange-pipeline
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Maven Build)
+[Pipeline] dir
+Running in /var/lib/jenkins/workspace/currency-exchange-pipeline/currency-exchange-sample-service
+[Pipeline] {
+[Pipeline] sh
++ mvn clean package -DskipTests
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-------< [0;36mcom.gfg.microservices:currency-exchange-sample-service[0;1m >-------[m
+[[1;34mINFO[m] [1mBuilding currency-exchange-sample-service 0.0.1-SNAPSHOT[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-clean-plugin:3.3.2:clean[m [1m(default-clean)[m @ [36mcurrency-exchange-sample-service[0;1m ---[m
+[[1;34mINFO[m] Deleting /var/lib/jenkins/workspace/currency-exchange-pipeline/currency-exchange-sample-service/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.3.1:resources[m [1m(default-resources)[m @ [36mcurrency-exchange-sample-service[0;1m ---[m
+[[1;34mINFO[m] Copying 1 resource from src/main/resources to target/classes
+[[1;34mINFO[m] Copying 1 resource from src/main/resources to target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.11.0:compile[m [1m(default-compile)[m @ [36mcurrency-exchange-sample-service[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module! :source
+[[1;34mINFO[m] Compiling 4 source files with javac [debug release 17] to target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.3.1:testResources[m [1m(default-testResources)[m @ [36mcurrency-exchange-sample-service[0;1m ---[m
+[[1;34mINFO[m] Copying 1 resource from src/test/resources to target/test-classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.11.0:testCompile[m [1m(default-testCompile)[m @ [36mcurrency-exchange-sample-service[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module! :dependency
+[[1;34mINFO[m] Compiling 1 source file with javac [debug release 17] to target/test-classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:3.1.2:test[m [1m(default-test)[m @ [36mcurrency-exchange-sample-service[0;1m ---[m
+[[1;34mINFO[m] Tests are skipped.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-jar-plugin:3.3.0:jar[m [1m(default-jar)[m @ [36mcurrency-exchange-sample-service[0;1m ---[m
+[[1;34mINFO[m] Building jar: /var/lib/jenkins/workspace/currency-exchange-pipeline/currency-exchange-sample-service/target/currency-exchange-sample-service-0.0.1-SNAPSHOT.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mspring-boot-maven-plugin:3.2.5:repackage[m [1m(repackage)[m @ [36mcurrency-exchange-sample-service[0;1m ---[m
+[[1;34mINFO[m] Replacing main artifact /var/lib/jenkins/workspace/currency-exchange-pipeline/currency-exchange-sample-service/target/currency-exchange-sample-service-0.0.1-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[[1;34mINFO[m] The original artifact has been renamed to /var/lib/jenkins/workspace/currency-exchange-pipeline/currency-exchange-sample-service/target/currency-exchange-sample-service-0.0.1-SNAPSHOT.jar.original
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  5.892 s
+[[1;34mINFO[m] Finished at: 2025-06-12T15:49:58Z
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Unit Tests)
+[Pipeline] dir
+Running in /var/lib/jenkins/workspace/currency-exchange-pipeline/currency-exchange-sample-service
+[Pipeline] {
+[Pipeline] sh
++ mvn test
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-------< [0;36mcom.gfg.microservices:currency-exchange-sample-service[0;1m >-------[m
+[[1;34mINFO[m] [1mBuilding currency-exchange-sample-service 0.0.1-SNAPSHOT[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.3.1:resources[m [1m(default-resources)[m @ [36mcurrency-exchange-sample-service[0;1m ---[m
+[[1;34mINFO[m] Copying 1 resource from src/main/resources to target/classes
+[[1;34mINFO[m] Copying 1 resource from src/main/resources to target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.11.0:compile[m [1m(default-compile)[m @ [36mcurrency-exchange-sample-service[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:3.3.1:testResources[m [1m(default-testResources)[m @ [36mcurrency-exchange-sample-service[0;1m ---[m
+[[1;34mINFO[m] Copying 1 resource from src/test/resources to target/test-classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.11.0:testCompile[m [1m(default-testCompile)[m @ [36mcurrency-exchange-sample-service[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:3.1.2:test[m [1m(default-test)[m @ [36mcurrency-exchange-sample-service[0;1m ---[m
+[[1;34mINFO[m] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[[1;34mINFO[m] 
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m]  T E S T S
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m] Running com.gfg.microservices.currencyexchangesampleservice.[1mCurrencyExchangeServiceApplicationTests[m
+15:50:04.101 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.gfg.microservices.currencyexchangesampleservice.CurrencyExchangeServiceApplicationTests]: CurrencyExchangeServiceApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+15:50:04.284 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.gfg.microservices.currencyexchangesampleservice.CurrencyExchangeServiceSampleApplication for test class com.gfg.microservices.currencyexchangesampleservice.CurrencyExchangeServiceApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2025-06-12T15:50:04.923Z  INFO 11589 --- [           main] .CurrencyExchangeServiceApplicationTests : Starting CurrencyExchangeServiceApplicationTests using Java 17.0.15 with PID 11589 (started by jenkins in /var/lib/jenkins/workspace/currency-exchange-pipeline/currency-exchange-sample-service)
+2025-06-12T15:50:04.925Z  INFO 11589 --- [           main] .CurrencyExchangeServiceApplicationTests : No active profile set, falling back to 1 default profile: "default"
+2025-06-12T15:50:06.114Z  INFO 11589 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-06-12T15:50:06.182Z  INFO 11589 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 1 JPA repository interface.
+2025-06-12T15:50:06.759Z  INFO 11589 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-06-12T15:50:06.984Z  INFO 11589 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:e732980d-479a-4402-93f4-9e6c33ba9688 user=SA
+2025-06-12T15:50:06.986Z  INFO 11589 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-06-12T15:50:07.064Z  INFO 11589 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-06-12T15:50:07.185Z  INFO 11589 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2025-06-12T15:50:07.247Z  INFO 11589 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-06-12T15:50:07.712Z  INFO 11589 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-06-12T15:50:08.838Z  INFO 11589 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-06-12T15:50:08.878Z  INFO 11589 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-06-12T15:50:09.579Z  WARN 11589 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-06-12T15:50:10.256Z  INFO 11589 --- [           main] .CurrencyExchangeServiceApplicationTests : Started CurrencyExchangeServiceApplicationTests in 5.713 seconds (process running for 7.215)
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m1[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.329 s -- in com.gfg.microservices.currencyexchangesampleservice.[1mCurrencyExchangeServiceApplicationTests[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Results:
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1;32mTests run: 1, Failures: 0, Errors: 0, Skipped: 0[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  10.672 s
+[[1;34mINFO[m] Finished at: 2025-06-12T15:50:11Z
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (SonarQube Analysis)
+[Pipeline] dir
+Running in /var/lib/jenkins/workspace/currency-exchange-pipeline/currency-exchange-sample-service
+[Pipeline] {
+[Pipeline] withSonarQubeEnv
+Injecting SonarQube environment variables using the configuration: SonarQube
+[Pipeline] {
+[Pipeline] withCredentials
+Masking supported pattern matches of $SONAR_TOKEN
+[Pipeline] {
+[Pipeline] sh
++ mvn sonar:sonar -Dsonar.login=****
+[[1;34mINFO[m] Scanning for projects...
+[[1;33mWARNING[m] The artifact org.codehaus.mojo:sonar-maven-plugin:jar:4.0.0.4121 has been relocated to org.sonarsource.scanner.maven:sonar-maven-plugin:jar:4.0.0.4121: SonarQube plugin was moved to SonarSource organisation
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-------< [0;36mcom.gfg.microservices:currency-exchange-sample-service[0;1m >-------[m
+[[1;34mINFO[m] [1mBuilding currency-exchange-sample-service 0.0.1-SNAPSHOT[m
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32msonar-maven-plugin:4.0.0.4121:sonar[m [1m(default-cli)[m @ [36mcurrency-exchange-sample-service[0;1m ---[m
+[[1;33mWARNING[m] 15:50:15.627 Using an unspecified version instead of an explicit plugin version may introduce breaking analysis changes at an unwanted time. It is highly recommended to use an explicit version, e.g. 'org.sonarsource.scanner.maven:sonar-maven-plugin:4.0.0.4121'.
+[[1;34mINFO[m] 15:50:15.645 Java 17.0.15 Ubuntu (64-bit)
+[[1;34mINFO[m] 15:50:15.645 Linux 6.8.0-1029-aws (amd64)
+[[1;34mINFO[m] 15:50:16.039 User cache: /var/lib/jenkins/.sonar/cache
+[[1;34mINFO[m] 15:50:16.155 Communicating with SonarQube Server 10.5.0.89998
+[[1;34mINFO[m] 15:50:16.185 Default locale: "en", source code encoding: "UTF-8"
+[[1;34mINFO[m] 15:50:17.132 Load global settings
+[[1;34mINFO[m] 15:50:17.280 Load global settings (done) | time=149ms
+[[1;34mINFO[m] 15:50:17.304 Server id: 147B411E-AZdjcULjcJ75Bk5rBo_F
+[[1;34mINFO[m] 15:50:17.308 User cache: /var/lib/jenkins/.sonar/cache
+[[1;34mINFO[m] 15:50:17.317 Loading required plugins
+[[1;34mINFO[m] 15:50:17.317 Load plugins index
+[[1;34mINFO[m] 15:50:17.406 Load plugins index (done) | time=89ms
+[[1;34mINFO[m] 15:50:17.406 Load/download plugins
+[[1;34mINFO[m] 15:50:17.477 Load/download plugins (done) | time=71ms
+[[1;34mINFO[m] 15:50:17.951 Process project properties
+[[1;34mINFO[m] 15:50:17.960 Process project properties (done) | time=9ms
+[[1;34mINFO[m] 15:50:17.968 Project key: com.gfg.microservices:currency-exchange-sample-service
+[[1;34mINFO[m] 15:50:17.969 Base dir: /var/lib/jenkins/workspace/currency-exchange-pipeline/currency-exchange-sample-service
+[[1;34mINFO[m] 15:50:17.969 Working dir: /var/lib/jenkins/workspace/currency-exchange-pipeline/currency-exchange-sample-service/target/sonar
+[[1;34mINFO[m] 15:50:17.978 Load project settings for component key: 'com.gfg.microservices:currency-exchange-sample-service'
+[[1;34mINFO[m] 15:50:18.013 Load project settings for component key: 'com.gfg.microservices:currency-exchange-sample-service' (done) | time=35ms
+[[1;34mINFO[m] 15:50:18.065 Load quality profiles
+[[1;34mINFO[m] 15:50:18.306 Load quality profiles (done) | time=241ms
+[[1;34mINFO[m] 15:50:18.318 Auto-configuring with CI 'Jenkins'
+[[1;33mWARNING[m] 15:50:18.362 SCM provider autodetection failed. Please use "sonar.scm.provider" to define SCM of your project, or disable the SCM Sensor in the project settings.
+[[1;34mINFO[m] 15:50:18.365 Load active rules
+[[1;34mINFO[m] 15:50:26.625 Load active rules (done) | time=8260ms
+[[1;34mINFO[m] 15:50:26.632 Load analysis cache
+[[1;34mINFO[m] 15:50:26.662 Load analysis cache (449 bytes) | time=31ms
+[[1;33mWARNING[m] 15:50:26.726 The property 'sonar.login' is deprecated and will be removed in the future. Please use the 'sonar.token' property instead when passing a token.
+[[1;34mINFO[m] 15:50:26.745 Preprocessing files...
+[[1;34mINFO[m] 15:50:26.780 2 languages detected in 6 preprocessed files
+[[1;34mINFO[m] 15:50:26.783 Loading plugins for detected languages
+[[1;34mINFO[m] 15:50:26.784 Load/download plugins
+[[1;34mINFO[m] 15:50:26.800 Load/download plugins (done) | time=15ms
+[[1;34mINFO[m] 15:50:26.922 Inconsistent constructor declaration on bean with name 'org.sonarsource.scanner.api.internal.IsolatedClassloader@7f5eae0f-org.sonar.scanner.issue.IssueFilters': single autowire-marked constructor flagged as optional - this constructor is effectively required since there is no default constructor to fall back to: public org.sonar.scanner.issue.IssueFilters(org.sonar.api.batch.fs.internal.DefaultInputProject)
+[[1;34mINFO[m] 15:50:26.945 Load project repositories
+[[1;34mINFO[m] 15:50:26.989 Load project repositories (done) | time=45ms
+[[1;34mINFO[m] 15:50:27.039 Indexing files...
+[[1;34mINFO[m] 15:50:27.044 Project configuration:
+[[1;34mINFO[m] 15:50:27.073 6 files indexed
+[[1;34mINFO[m] 15:50:27.075 Quality profile for java: Sonar way
+[[1;34mINFO[m] 15:50:27.075 Quality profile for xml: Sonar way
+[[1;34mINFO[m] 15:50:27.075 ------------- Run sensors on module currency-exchange-sample-service
+[[1;34mINFO[m] 15:50:27.223 Load metrics repository
+[[1;34mINFO[m] 15:50:27.260 Load metrics repository (done) | time=37ms
+[[1;34mINFO[m] 15:50:28.570 Sensor JavaSensor [java]
+[[1;34mINFO[m] 15:50:28.581 Configured Java source version (sonar.java.source): 17, preview features enabled (sonar.java.enablePreview): false
+[[1;34mINFO[m] 15:50:28.613 Server-side caching is enabled. The Java analyzer will not try to leverage data from a previous analysis.
+[[1;34mINFO[m] 15:50:28.618 Using ECJ batch to parse 4 Main java source files with batch size 51 KB.
+[[1;34mINFO[m] 15:50:28.912 Starting batch processing.
+[[1;34mINFO[m] 15:50:29.862 The Java analyzer cannot skip unchanged files in this context. A full analysis is performed for all files.
+[[1;34mINFO[m] 15:50:30.470 100% analyzed
+[[1;34mINFO[m] 15:50:30.471 Batch processing: Done.
+[[1;34mINFO[m] 15:50:30.473 Did not optimize analysis for any files, performed a full analysis for all 4 files.
+[[1;34mINFO[m] 15:50:30.475 Using ECJ batch to parse 1 Test java source files with batch size 51 KB.
+[[1;34mINFO[m] 15:50:30.478 Starting batch processing.
+[[1;34mINFO[m] 15:50:30.661 100% analyzed
+[[1;34mINFO[m] 15:50:30.661 Batch processing: Done.
+[[1;34mINFO[m] 15:50:30.663 Did not optimize analysis for any files, performed a full analysis for all 1 files.
+[[1;34mINFO[m] 15:50:30.663 No "Generated" source files to scan.
+[[1;34mINFO[m] 15:50:30.663 Sensor JavaSensor [java] (done) | time=2093ms
+[[1;34mINFO[m] 15:50:30.663 Sensor SurefireSensor [java]
+[[1;34mINFO[m] 15:50:30.664 parsing [/var/lib/jenkins/workspace/currency-exchange-pipeline/currency-exchange-sample-service/target/surefire-reports]
+[[1;34mINFO[m] 15:50:30.742 Sensor SurefireSensor [java] (done) | time=78ms
+[[1;34mINFO[m] 15:50:30.742 Sensor XML Sensor [xml]
+[[1;34mINFO[m] 15:50:30.748 1 source file to be analyzed
+[[1;34mINFO[m] 15:50:30.974 1/1 source file has been analyzed
+[[1;34mINFO[m] 15:50:30.976 Sensor XML Sensor [xml] (done) | time=234ms
+[[1;34mINFO[m] 15:50:30.976 Sensor JaCoCo XML Report Importer [jacoco]
+[[1;34mINFO[m] 15:50:30.977 'sonar.coverage.jacoco.xmlReportPaths' is not defined. Using default locations: target/site/jacoco/jacoco.xml,target/site/jacoco-it/jacoco.xml,build/reports/jacoco/test/jacocoTestReport.xml
+[[1;34mINFO[m] 15:50:30.978 No report imported, no coverage information will be imported by JaCoCo XML Report Importer
+[[1;34mINFO[m] 15:50:30.979 Sensor JaCoCo XML Report Importer [jacoco] (done) | time=3ms
+[[1;34mINFO[m] 15:50:30.979 Sensor IaC Docker Sensor [iac]
+[[1;34mINFO[m] 15:50:30.984 0 source files to be analyzed
+[[1;34mINFO[m] 15:50:31.122 0/0 source files have been analyzed
+[[1;34mINFO[m] 15:50:31.122 Sensor IaC Docker Sensor [iac] (done) | time=143ms
+[[1;34mINFO[m] 15:50:31.123 Sensor TextAndSecretsSensor [text]
+[[1;34mINFO[m] 15:50:31.123 Available processors: 2
+[[1;34mINFO[m] 15:50:31.123 Using 2 threads for analysis.
+[[1;34mINFO[m] 15:50:31.747 6 source files to be analyzed
+[[1;34mINFO[m] 15:50:31.824 6/6 source files have been analyzed
+[[1;34mINFO[m] 15:50:31.826 Sensor TextAndSecretsSensor [text] (done) | time=703ms
+[[1;34mINFO[m] 15:50:31.836 ------------- Run sensors on project
+[[1;34mINFO[m] 15:50:31.887 Sensor Zero Coverage Sensor
+[[1;34mINFO[m] 15:50:31.902 Sensor Zero Coverage Sensor (done) | time=15ms
+[[1;34mINFO[m] 15:50:31.902 Sensor Java CPD Block Indexer
+[[1;34mINFO[m] 15:50:31.926 Sensor Java CPD Block Indexer (done) | time=24ms
+[[1;34mINFO[m] 15:50:31.929 SCM Publisher No SCM system was detected. You can use the 'sonar.scm.provider' property to explicitly specify it.
+[[1;34mINFO[m] 15:50:31.933 CPD Executor 3 files had no CPD blocks
+[[1;34mINFO[m] 15:50:31.933 CPD Executor Calculating CPD for 1 file
+[[1;34mINFO[m] 15:50:31.944 CPD Executor CPD calculation finished (done) | time=7ms
+[[1;34mINFO[m] 15:50:32.082 Analysis report generated in 120ms, dir size=209.3 kB
+[[1;34mINFO[m] 15:50:32.113 Analysis report compressed in 31ms, zip size=29.3 kB
+[[1;34mINFO[m] 15:50:32.150 Analysis report uploaded in 37ms
+[[1;34mINFO[m] 15:50:32.153 ANALYSIS SUCCESSFUL, you can find the results at: http://100.26.202.196:9000/dashboard?id=com.gfg.microservices%3Acurrency-exchange-sample-service
+[[1;34mINFO[m] 15:50:32.153 Note that you will be able to access the updated dashboard once the server has processed the submitted analysis report
+[[1;34mINFO[m] 15:50:32.153 More about the report processing at http://100.26.202.196:9000/api/ce/task?id=77df3385-5299-4cc6-9c49-c31d03421dc8
+[[1;34mINFO[m] 15:50:32.163 Analysis total time: 14.576 s
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  18.665 s
+[[1;34mINFO[m] Finished at: 2025-06-12T15:50:32Z
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+Exception in thread "Thread-1" java.lang.NoClassDefFoundError: ch/qos/logback/classic/spi/ThrowableProxy
+	at ch.qos.logback.classic.spi.LoggingEvent.<init>(LoggingEvent.java:145)
+	at ch.qos.logback.classic.Logger.buildLoggingEventAndAppend(Logger.java:424)
+	at ch.qos.logback.classic.Logger.filterAndLog_0_Or3Plus(Logger.java:386)
+	at ch.qos.logback.classic.Logger.error(Logger.java:543)
+	at org.eclipse.jgit.internal.util.ShutdownHook.cleanup(ShutdownHook.java:87)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: java.lang.ClassNotFoundException: ch.qos.logback.classic.spi.ThrowableProxy
+	at java.base/java.net.URLClassLoader.findClass(URLClassLoader.java:445)
+	at org.sonarsource.scanner.api.internal.IsolatedClassloader.loadClass(IsolatedClassloader.java:82)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:525)
+	... 6 more
+[Pipeline] }
+[Pipeline] // withCredentials
+[Pipeline] }
+[Pipeline] // withSonarQubeEnv
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Docker Build & Tag)
+[Pipeline] dir
+Running in /var/lib/jenkins/workspace/currency-exchange-pipeline/currency-exchange-sample-service
+[Pipeline] {
+[Pipeline] sh
++ docker build -t currency-exchange-app:latest .
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  47.09MB
+
+Step 1/6 : FROM openjdk:17-jdk-slim
+ ---> 37cb44321d04
+Step 2/6 : WORKDIR /app
+ ---> Using cache
+ ---> 206f9410e07d
+Step 3/6 : ARG JAR_FILE=target/currency-exchange-sample-service-0.0.1-SNAPSHOT.jar
+ ---> Using cache
+ ---> 1559eeac4f4a
+Step 4/6 : COPY ${JAR_FILE} app.jar
+ ---> 6528a1ec01b3
+Step 5/6 : EXPOSE 8000
+ ---> Running in 50df981d1b3e
+ ---> Removed intermediate container 50df981d1b3e
+ ---> 50f14482cc34
+Step 6/6 : ENTRYPOINT ["java", "-jar", "app.jar"]
+ ---> Running in 5d23513f8f1b
+ ---> Removed intermediate container 5d23513f8f1b
+ ---> f96ed5b28c60
+Successfully built f96ed5b28c60
+Successfully tagged currency-exchange-app:latest
++ docker tag currency-exchange-app:latest 609862927287.dkr.ecr.us-east-1.amazonaws.com/currency-exchange-app:28
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Trivy Scan)
+[Pipeline] dir
+Running in /var/lib/jenkins/workspace/currency-exchange-pipeline/currency-exchange-sample-service
+[Pipeline] {
+[Pipeline] sh
++ trivy image --exit-code 0 --severity CRITICAL 609862927287.dkr.ecr.us-east-1.amazonaws.com/currency-exchange-app:28
+2025-06-12T15:50:36Z	INFO	[vuln] Vulnerability scanning is enabled
+2025-06-12T15:50:36Z	INFO	[secret] Secret scanning is enabled
+2025-06-12T15:50:36Z	INFO	[secret] If your scanning is slow, please try '--scanners vuln' to disable secret scanning
+2025-06-12T15:50:36Z	INFO	[secret] Please see also https://trivy.dev/v0.63/docs/scanner/secret#recommendation for faster secret detection
+2025-06-12T15:50:53Z	INFO	Detected OS	family="debian" version="11.3"
+2025-06-12T15:50:53Z	INFO	[debian] Detecting vulnerabilities...	os_version="11" pkg_num=100
+2025-06-12T15:50:53Z	INFO	Number of language-specific files	num=1
+2025-06-12T15:50:53Z	INFO	[jar] Detecting vulnerabilities...
+2025-06-12T15:50:53Z	WARN	Using severities from other vendors for some vulnerabilities. Read https://trivy.dev/v0.63/docs/scanner/vulnerability#severity-selection for details.
+2025-06-12T15:50:53Z	INFO	Table result includes only package filenames. Use '--format json' option to get the full path to the package file.
+
+Report Summary
+
+┌───────────────────────────────────────────────────────────────────────────────┬────────┬─────────────────┬─────────┐
+│                                    Target                                     │  Type  │ Vulnerabilities │ Secrets │
+├───────────────────────────────────────────────────────────────────────────────┼────────┼─────────────────┼─────────┤
+│ 609862927287.dkr.ecr.us-east-1.amazonaws.com/currency-exchange-app:28 (debian │ debian │       15        │    -    │
+│ 11.3)                                                                         │        │                 │         │
+├───────────────────────────────────────────────────────────────────────────────┼────────┼─────────────────┼─────────┤
+│ app/app.jar                                                                   │  jar   │        1        │    -    │
+└───────────────────────────────────────────────────────────────────────────────┴────────┴─────────────────┴─────────┘
+Legend:
+- '-': Not scanned
+- '0': Clean (no security findings detected)
+
+
+For OSS Maintainers: VEX Notice
+--------------------------------
+If you're an OSS maintainer and Trivy has detected vulnerabilities in your project that you believe are not actually exploitable, consider issuing a VEX (Vulnerability Exploitability eXchange) statement.
+VEX allows you to communicate the actual status of vulnerabilities in your project, improving security transparency and reducing false positives for your users.
+Learn more and start using VEX: https://trivy.dev/v0.63/docs/supply-chain/vex/repo#publishing-vex-documents
+
+To disable this notice, set the TRIVY_DISABLE_VEX_NOTICE environment variable.
+
+
+609862927287.dkr.ecr.us-east-1.amazonaws.com/currency-exchange-app:28 (debian 11.3)
+===================================================================================
+Total: 15 (CRITICAL: 15)
+
+┌──────────────────┬────────────────┬──────────┬──────────────┬─────────────────────────┬─────────────────────────┬──────────────────────────────────────────────────────────────┐
+│     Library      │ Vulnerability  │ Severity │    Status    │    Installed Version    │      Fixed Version      │                            Title                             │
+├──────────────────┼────────────────┼──────────┼──────────────┼─────────────────────────┼─────────────────────────┼──────────────────────────────────────────────────────────────┤
+│ dpkg             │ CVE-2022-1664  │ CRITICAL │ fixed        │ 1.20.9                  │ 1.20.10                 │ Dpkg::Source::Archive in dpkg, the Debian package management │
+│                  │                │          │              │                         │                         │ system, b ...                                                │
+│                  │                │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2022-1664                    │
+├──────────────────┼────────────────┤          ├──────────────┼─────────────────────────┼─────────────────────────┼──────────────────────────────────────────────────────────────┤
+│ libdb5.3         │ CVE-2019-8457  │          │ will_not_fix │ 5.3.28+dfsg1-0.8        │                         │ sqlite: heap out-of-bound read in function rtreenode()       │
+│                  │                │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2019-8457                    │
+├──────────────────┼────────────────┤          ├──────────────┼─────────────────────────┼─────────────────────────┼──────────────────────────────────────────────────────────────┤
+│ libgssapi-krb5-2 │ CVE-2024-37371 │          │ fixed        │ 1.18.3-6+deb11u1        │ 1.18.3-6+deb11u5        │ krb5: GSS message token handling                             │
+│                  │                │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2024-37371                   │
+├──────────────────┤                │          │              │                         │                         │                                                              │
+│ libk5crypto3     │                │          │              │                         │                         │                                                              │
+│                  │                │          │              │                         │                         │                                                              │
+├──────────────────┤                │          │              │                         │                         │                                                              │
+│ libkrb5-3        │                │          │              │                         │                         │                                                              │
+│                  │                │          │              │                         │                         │                                                              │
+├──────────────────┤                │          │              │                         │                         │                                                              │
+│ libkrb5support0  │                │          │              │                         │                         │                                                              │
+│                  │                │          │              │                         │                         │                                                              │
+├──────────────────┼────────────────┤          │              ├─────────────────────────┼─────────────────────────┼──────────────────────────────────────────────────────────────┤
+│ libpcre2-8-0     │ CVE-2022-1586  │          │              │ 10.36-2                 │ 10.36-2+deb11u1         │ pcre2: Out-of-bounds read in compile_xclass_matchingpath in  │
+│                  │                │          │              │                         │                         │ pcre2_jit_compile.c                                          │
+│                  │                │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2022-1586                    │
+│                  ├────────────────┤          │              │                         │                         ├──────────────────────────────────────────────────────────────┤
+│                  │ CVE-2022-1587  │          │              │                         │                         │ pcre2: Out-of-bounds read in get_recurse_data_length in      │
+│                  │                │          │              │                         │                         │ pcre2_jit_compile.c                                          │
+│                  │                │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2022-1587                    │
+├──────────────────┼────────────────┤          │              ├─────────────────────────┼─────────────────────────┼──────────────────────────────────────────────────────────────┤
+│ libssl1.1        │ CVE-2022-1292  │          │              │ 1.1.1n-0+deb11u1        │ 1.1.1n-0+deb11u2        │ openssl: c_rehash script allows command injection            │
+│                  │                │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2022-1292                    │
+│                  ├────────────────┤          │              │                         ├─────────────────────────┼──────────────────────────────────────────────────────────────┤
+│                  │ CVE-2022-2068  │          │              │                         │ 1.1.1n-0+deb11u3        │ openssl: the c_rehash script allows command injection        │
+│                  │                │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2022-2068                    │
+├──────────────────┼────────────────┤          │              ├─────────────────────────┼─────────────────────────┼──────────────────────────────────────────────────────────────┤
+│ libtasn1-6       │ CVE-2021-46848 │          │              │ 4.16.0-2                │ 4.16.0-2+deb11u1        │ libtasn1: Out-of-bound access in ETYPE_OK                    │
+│                  │                │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2021-46848                   │
+├──────────────────┼────────────────┤          │              ├─────────────────────────┼─────────────────────────┼──────────────────────────────────────────────────────────────┤
+│ openssl          │ CVE-2022-1292  │          │              │ 1.1.1n-0+deb11u1        │ 1.1.1n-0+deb11u2        │ openssl: c_rehash script allows command injection            │
+│                  │                │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2022-1292                    │
+│                  ├────────────────┤          │              │                         ├─────────────────────────┼──────────────────────────────────────────────────────────────┤
+│                  │ CVE-2022-2068  │          │              │                         │ 1.1.1n-0+deb11u3        │ openssl: the c_rehash script allows command injection        │
+│                  │                │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2022-2068                    │
+├──────────────────┼────────────────┤          │              ├─────────────────────────┼─────────────────────────┼──────────────────────────────────────────────────────────────┤
+│ zlib1g           │ CVE-2022-37434 │          │              │ 1:1.2.11.dfsg-2+deb11u1 │ 1:1.2.11.dfsg-2+deb11u2 │ zlib: heap-based buffer over-read and overflow in inflate()  │
+│                  │                │          │              │                         │                         │ in inflate.c via a...                                        │
+│                  │                │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2022-37434                   │
+│                  ├────────────────┤          ├──────────────┤                         ├─────────────────────────┼──────────────────────────────────────────────────────────────┤
+│                  │ CVE-2023-45853 │          │ will_not_fix │                         │                         │ zlib: integer overflow and resultant heap-based buffer       │
+│                  │                │          │              │                         │                         │ overflow in zipOpenNewFileInZip4_6                           │
+│                  │                │          │              │                         │                         │ https://avd.aquasec.com/nvd/cve-2023-45853                   │
+└──────────────────┴────────────────┴──────────┴──────────────┴─────────────────────────┴─────────────────────────┴──────────────────────────────────────────────────────────────┘
+
+Java (jar)
+==========
+Total: 1 (CRITICAL: 1)
+
+┌─────────────────────────────────────────────────────┬────────────────┬──────────┬────────┬───────────────────┬─────────────────────────┬────────────────────────────────────────────────────────────┐
+│                       Library                       │ Vulnerability  │ Severity │ Status │ Installed Version │      Fixed Version      │                           Title                            │
+├─────────────────────────────────────────────────────┼────────────────┼──────────┼────────┼───────────────────┼─────────────────────────┼────────────────────────────────────────────────────────────┤
+│ org.apache.tomcat.embed:tomcat-embed-core (app.jar) │ CVE-2025-24813 │ CRITICAL │ fixed  │ 10.1.20           │ 11.0.3, 10.1.35, 9.0.99 │ tomcat: Potential RCE and/or information disclosure and/or │
+│                                                     │                │          │        │                   │                         │ information corruption with partial PUT...                 │
+│                                                     │                │          │        │                   │                         │ https://avd.aquasec.com/nvd/cve-2025-24813                 │
+└─────────────────────────────────────────────────────┴────────────────┴──────────┴────────┴───────────────────┴─────────────────────────┴────────────────────────────────────────────────────────────┘
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (ECR Login)
+[Pipeline] withCredentials
+Masking supported pattern matches of $AWS_ACCESS_KEY_ID or $AWS_SECRET_ACCESS_KEY
+[Pipeline] {
+[Pipeline] sh
++ aws ecr get-login-password --region us-east-1
++ docker login --username AWS --password-stdin 609862927287.dkr.ecr.us-east-1.amazonaws.com
+WARNING! Your password will be stored unencrypted in /var/lib/jenkins/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credential-stores
+
+Login Succeeded
+[Pipeline] }
+[Pipeline] // withCredentials
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Push to ECR)
+[Pipeline] sh
++ docker push 609862927287.dkr.ecr.us-east-1.amazonaws.com/currency-exchange-app:28
+The push refers to repository [609862927287.dkr.ecr.us-east-1.amazonaws.com/currency-exchange-app]
+5a658053d79b: Preparing
+cb6032ce6b99: Preparing
+6be690267e47: Preparing
+13a34b6fff78: Preparing
+9c1b6dd6c1e6: Preparing
+13a34b6fff78: Layer already exists
+9c1b6dd6c1e6: Layer already exists
+6be690267e47: Layer already exists
+cb6032ce6b99: Layer already exists
+5a658053d79b: Pushed
+28: digest: sha256:b52dcf1b3ec29109582fcaf761253823ee0e81fd0dc48fc571ba082fee491b53 size: 1371
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
