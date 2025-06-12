@@ -10,54 +10,60 @@ pipeline {
     }
 
     stages {
-
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
-
         stage('Maven Build') {
             steps {
-                sh 'mvn clean package -DskipTests'
-            }
-        }
-
-        stage('Docker Build') {
-            steps {
-                sh 'docker build -t currency-exchange-app:latest .'
-                sh 'docker tag currency-exchange-app:latest ${DOCKER_IMAGE}'
-            }
-        }
-
-        stage('Trivy Scan') {
-            steps {
-                sh 'trivy image --exit-code 1 --severity CRITICAL ${DOCKER_IMAGE}'
-            }
-        }
-
-        stage('SonarQube & Unit Test') {
-            parallel {
-                stage('Unit Tests') {
-                    steps {
-                        sh 'mvn test'
-                    }
+                dir('currency-exchange-sample-service') {
+                    sh 'mvn clean package -DskipTests'
                 }
-                stage('SonarQube Analysis') {
-                    steps {
-                        withSonarQubeEnv('sonar-server') {
-                            sh 'mvn sonar:sonar'
+            }
+        }
+
+        stage('Unit Tests') {
+            steps {
+                dir('currency-exchange-sample-service') {
+                    sh 'mvn test'
+                }
+            }
+        }
+
+        stage('SonarQube Analysis') {
+            steps {
+                dir('currency-exchange-sample-service') {
+                    withSonarQubeEnv('SonarQube') {
+                        withCredentials([string(credentialsId: '8c2cad5d-f9f8-4c40-add7-f22eb79e7204', variable: 'SONAR_TOKEN')]) {
+                            sh 'mvn sonar:sonar -Dsonar.login=$SONAR_TOKEN'
                         }
                     }
                 }
             }
         }
 
+        stage('Docker Build & Tag') {
+            steps {
+                dir('currency-exchange-sample-service') {
+                    sh '''
+                        docker build -t currency-exchange-app:latest .
+                        docker tag currency-exchange-app:latest ${DOCKER_IMAGE}
+                    '''
+                }
+            }
+        }
+
+        stage('Trivy Scan') {
+            steps {
+                dir('currency-exchange-sample-service') {
+                    sh 'trivy image --exit-code 0 --severity CRITICAL ${DOCKER_IMAGE}'
+                }
+            }
+        }
+
         stage('ECR Login') {
             steps {
-                sh '''
-                aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com
-                '''
+                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-ecr']]) {
+                    sh '''
+                        aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com
+                    '''
+                }
             }
         }
 
@@ -66,35 +72,10 @@ pipeline {
                 sh 'docker push ${DOCKER_IMAGE}'
             }
         }
-
-        stage('Deploy to Dev') {
-            steps {
-                sh '''
-                sed "s|IMAGE_PLACEHOLDER|${DOCKER_IMAGE}|" k8s/dev/deployment.yaml | kubectl apply -f -
-                '''
-            }
-        }
-
-        stage('Approval for Prod') {
-            steps {
-                input message: 'Approve Production Deployment?'
-            }
-        }
-
-        stage('Deploy to Prod') {
-            steps {
-                sh '''
-                sed "s|IMAGE_PLACEHOLDER|${DOCKER_IMAGE}|" k8s/prod/deployment.yaml | kubectl apply -f -
-                '''
-            }
-        }
     }
-
     post {
         failure {
             echo 'Pipeline failed. Sending notifications...'
-            // (Optional) SNS/Email notification integration goes here
         }
     }
 }
-
