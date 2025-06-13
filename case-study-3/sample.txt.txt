@@ -1,0 +1,9 @@
+Hello World!
+
+Welcome to AWS Organization....
+Two accounts are linked to Central Management account.
+IAM role attached to EC2 created in 881254692198 account.
+S3 Bucket created in 499754638847 account.
+
+Thank you!
+
