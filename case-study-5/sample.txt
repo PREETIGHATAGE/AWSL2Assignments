@@ -1,0 +1,6 @@
+Hello Team,
+Welcome to CitiusTech!
+This is a sample text file to test the word count script. 
+It contains a few lines and several words.
+Thanks everyone.
+Have a great day!
