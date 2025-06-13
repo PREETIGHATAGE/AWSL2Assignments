@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Weighted Routing for Blue/Green
+
+Resources:
+  BlueDNSRecord:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneId: Z0883399DUDZQT4EYNH1
+      Name: app.myap123.com
+      Type: A
+      SetIdentifier: Blue
+      Weight: 100
+      AliasTarget:
+        DNSName: !ImportValue BlueGreenALBBlueDNS
+        HostedZoneId: Z35SXDOTRQ7X7K
+
+  GreenDNSRecord:
+    Type: AWS::Route53::RecordSet
+    Properties:
+      HostedZoneId: Z0883399DUDZQT4EYNH1
+      Name: app.myap123.com
+      Type: A
+      SetIdentifier: Green
+      Weight: 0
+      AliasTarget:
+        DNSName: !ImportValue BlueGreenALBGreenDNS
+        HostedZoneId: Z35SXDOTRQ7X7K

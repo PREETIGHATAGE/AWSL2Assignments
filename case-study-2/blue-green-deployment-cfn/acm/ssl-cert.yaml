@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: ACM cert for HTTPS
+
+Resources:
+  SSLCertificate:
+    Type: AWS::CertificateManager::Certificate
+    Properties:
+      DomainName: myap123.com
+      ValidationMethod: DNS
+      DomainValidationOptions:
+        - DomainName: myap123.com
+          HostedZoneId: Z0883399DUDZQT4EYNH1
+      CertificateTransparencyLoggingPreference: ENABLED
+      Tags:
+        - Key: Name
+          Value: BlueGreen-SSLCert
+
+Outputs:
+  SSLCertArn:
+    Value: !Ref SSLCertificate
+    Export:
+      Name: SSLCertArn

@@ -1,0 +1,62 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Master Template
+
+Resources:
+  NetworkStack:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: https://case-study2-s3.s3.amazonaws.com/network/vpc-subnets.yaml
+
+  SecurityStack:
+    Type: AWS::CloudFormation::Stack
+    DependsOn: NetworkStack
+    Properties:
+      TemplateURL: https://case-study2-s3.s3.amazonaws.com/network/sg.yaml
+
+  ACMCert:
+    Type: AWS::CloudFormation::Stack
+    DependsOn: NetworkStack
+    Properties:
+      TemplateURL: https://case-study2-s3.s3.amazonaws.com/acm/ssl-cert.yaml
+      
+  ALBBlueStack:
+    Type: AWS::CloudFormation::Stack
+    DependsOn: [NetworkStack, SecurityStack]
+    Properties:
+      TemplateURL: https://case-study2-s3.s3.amazonaws.com/alb/alb-blue.yaml
+
+  ALBGreenStack:
+    Type: AWS::CloudFormation::Stack
+    DependsOn: [NetworkStack, SecurityStack]
+    Properties:
+      TemplateURL: https://case-study2-s3.s3.amazonaws.com/alb/alb-green.yaml
+
+  ASGBlue:
+    Type: AWS::CloudFormation::Stack
+    DependsOn: [NetworkStack, SecurityStack, ALBBlueStack]
+    Properties:
+      TemplateURL: https://case-study2-s3.s3.amazonaws.com/asg/asg-blue.yaml
+
+  ASGGreen:
+    Type: AWS::CloudFormation::Stack
+    DependsOn: [NetworkStack, SecurityStack, ALBGreenStack]
+    Properties:
+      TemplateURL: https://case-study2-s3.s3.amazonaws.com/asg/asg-green.yaml
+
+  HTTPSListenerBlue:
+    Type: AWS::CloudFormation::Stack
+    DependsOn: [ALBBlueStack, ACMCert]
+    Properties:
+      TemplateURL: https://case-study2-s3.s3.amazonaws.com/alb/alb-blue-https-listener.yaml
+
+  HTTPSListenerGreen:
+    Type: AWS::CloudFormation::Stack
+    DependsOn: [ALBGreenStack, ACMCert]
+    Properties:
+      TemplateURL: https://case-study2-s3.s3.amazonaws.com/alb/alb-green-https-listener.yaml
+
+  Route53DNS:
+    Type: AWS::CloudFormation::Stack
+    DependsOn: [HTTPSListenerBlue, HTTPSListenerGreen]
+    Properties:
+      TemplateURL: https://case-study2-s3.s3.amazonaws.com/route53/dns-weighted-routing.yaml

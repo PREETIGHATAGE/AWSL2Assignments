@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: HTTPS Listener for Green ALB
+
+Resources:
+  HTTPSListenerGreen:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      LoadBalancerArn: !ImportValue BlueGreenALBGreen
+      Port: 443
+      Protocol: HTTPS
+      Certificates:
+        - CertificateArn: !ImportValue SSLCertArn
+      DefaultActions:
+        - Type: forward
+          TargetGroupArn: !ImportValue BlueGreenTargetGroupGreen

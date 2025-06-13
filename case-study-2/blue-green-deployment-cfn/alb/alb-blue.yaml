@@ -1,0 +1,56 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Blue ALB with listener
+
+Resources:
+  ALBBlue:
+    Type: AWS::ElasticLoadBalancingV2::LoadBalancer
+    Properties:
+      Name: blue-alb
+      Scheme: internet-facing
+      Subnets:
+        - !ImportValue BlueGreenSubnet1
+        - !ImportValue BlueGreenSubnet2
+      SecurityGroups:
+        - !ImportValue BlueGreenALBSecurityGroup
+      Tags:
+        - Key: Name
+          Value: BlueGreen-ALB-Blue
+
+  TargetGroupBlue:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      Name: tg-blue
+      VpcId: !ImportValue BlueGreenVPC
+      Port: 80
+      Protocol: HTTP
+      TargetType: instance
+      HealthCheckPath: /
+      Tags:
+        - Key: Name
+          Value: BlueGreen-TG-Blue
+
+  ListenerBlue:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      LoadBalancerArn: !Ref ALBBlue
+      Port: 80
+      Protocol: HTTP
+      DefaultActions:
+        - Type: forward
+          TargetGroupArn: !Ref TargetGroupBlue
+
+Outputs:
+  BlueGreenALBBlueDNS:
+    Value: !GetAtt ALBBlue.DNSName
+    Export:
+      Name: BlueGreenALBBlueDNS
+
+  BlueGreenTargetGroupBlue:
+    Value: !Ref TargetGroupBlue
+    Export:
+      Name: BlueGreenTargetGroupBlue
+
+  BlueGreenALBBlue:
+    Value: !Ref ALBBlue
+    Export:
+      Name: BlueGreenALBBlue
