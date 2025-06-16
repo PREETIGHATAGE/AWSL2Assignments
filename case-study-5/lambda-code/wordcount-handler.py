@@ -1,24 +1,31 @@
-#!/bin/bash
-BUCKET_NAME="case-study5-s3"
-OUT_FOLDER="out"
-COUNT_FOLDER="count"
-TMP_DIR="/tmp/s3-wordcount"
-COUNT_FILE="$TMP_DIR/count.txt"
-LOG_FILE="/var/log/word-count.log"
+import boto3
+import datetime
 
-mkdir -p $TMP_DIR
-cd $TMP_DIR
-> $COUNT_FILE
+s3 = boto3.client('s3')
 
-aws s3 ls s3://$BUCKET_NAME/$OUT_FOLDER/ |
-awk '{print $4}' | grep '\.txt$' >files.txt
+def lambda_handler(event, context):
+    bucket = event['Records'][0]['s3']['bucket']['name']
+    file_key = event['Records'][0]['s3']['object']['key']
 
-while read FILE; do
-  echo "Processing: $FILE" | tee -a $LOG_FILE
-  aws s3 cp s3://$BUCKET_NAME/$OUT_FOLDER/$FILE $FILE
-  WORDS=$(wc -W <$FILE)
-  TIMESTAMP=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-  echo "$TIMESTAMP - $FILE - $WORDS words" >> $COUNT_FILE
-done < files.txt
+    if not file_key.endswith('.txt') or not file_key.startswith('out/'):
+        return
 
-aws s3 cp $COUNT_FILE s3://$BUCKET_NAME/$COUNT_FOLDER/count.txt
+    local_file = '/tmp/input.txt'
+    s3.download_file(bucket, file_key, local_file)
+
+    with open(local_file, 'r') as f:
+        count = len(f.read().split())
+
+    timestamp = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    result_line = f"{timestamp} | {file_key} | Word Count: {count}\n"
+
+    count_file = '/tmp/count.txt'
+    try:
+        s3.download_file(bucket, 'count/count.txt', count_file)
+    except:
+        open(count_file, 'w').close()
+
+    with open(count_file, 'a') as f:
+        f.write(result_line)
+
+    s3.upload_file(count_file, bucket, 'count/count.txt')
