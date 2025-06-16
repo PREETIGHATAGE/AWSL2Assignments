@@ -69,7 +69,7 @@ aws configure
 aws s3 mb s3://<your-s3-bucket-name>
 ```
 ---
-## 🚀 Deployment Steps
+## Deployment Steps
 
 ### 1. Modify `deploy.sh` Script
 
@@ -80,7 +80,7 @@ BUCKET_NAME=<your-s3-bucket-name>
 STACK_NAME=<your-cloudformation-stack-name>
 ```
 
-### ️⃣ Upload Templates and Deploy Master Stack
+### 2. Upload Templates and Deploy Master Stack
 
 ```bash
 chmod +x deploy.sh
